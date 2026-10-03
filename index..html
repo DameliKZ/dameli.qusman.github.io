@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="kk" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тілім менің – ғасырларға аманат | №75 мектеп-гимназиясы</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        light: '#050A14',
+                        surface: 'rgba(15, 23, 42, 0.4)',
+                        darkText: '#FDFBF7',
+                        mutedText: '#94A3B8',
+                        gold: {
+                            300: '#E6C27A',
+                            400: '#D4AF37',
+                            500: '#B58900',
+                            600: '#8C6239',
+                        },
+                        accent: {
+                            cyan: '#0284C7', 
+                            violet: '#7C3AED' 
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    backgroundImage: {
+                        'texture': 'url("https://tursynbaeva-kamila.kz/uploads/img_6ac12db86de04.png")',
+                        'ornament-bg': 'url("https://tursynbaeva-kamila.kz/uploads/img_6ac12e27873f3.png")',
+                        'divider': 'url("https://tursynbaeva-kamila.kz/uploads/img_6ac12ebf3e12f.png")',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --gold-glow: 0 10px 30px rgba(212, 175, 55, 0.15);
+        }
+        
+        body {
+            background-color: #050A14;
+            color: #FDFBF7;
+            overflow-x: hidden;
+            background-image: var(--texture);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050A14; }
+        ::-webkit-scrollbar-thumb { background: #8C6239; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #E6C27A, #D4AF37, #B58900);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-panel {
+            background: rgba(10, 15, 30, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes bannerZoomPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+            100% { transform: scale(1); }
+        }
+        .banner-pulse {
+            animation: bannerZoomPulse 9s ease-in-out infinite;
+        }
+
+        .section-divider {
+            height: 40px;
+            background-image: var(--divider);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.8;
+            margin: 2rem auto;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-300 selection:text-darkText">
+
+    <canvas id="cinema-canvas" class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none opacity-40"></canvas>
+
+    <main class="relative z-10">
+
+        <!-- ================= HERO SECTION ================= -->
+        <section id="hero" class="relative min-h-[100svh] flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 overflow-hidden pt-28 pb-16 bg-ornament-bg bg-cover bg-center bg-blend-overlay">
+            
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <!-- Left: Scaled Large Pulsing Banner -->
+                <div class="lg:col-span-6 relative flex items-center justify-center p-4">
+                    <div class="absolute inset-0 bg-gold-500/10 blur-[150px] rounded-full pointer-events-none"></div>
+                    <img src="https://tursynbaeva-kamila.kz/uploads/img_6ac12c90673e9.png" alt="Тілім менің – ғасырларға аманат" class="w-full max-w-xl lg:max-w-2xl h-auto object-contain banner-pulse drop-shadow-[0_20px_50px_rgba(212,175,55,0.25)]">
+                </div>
+
+                <!-- Right: Titles on the Right Side -->
+                <div class="lg:col-span-6 flex flex-col items-start text-left">
+                    <div class="mb-4 reveal-up active" style="transition-delay: 0.1s;">
+                        <span class="inline-block px-3 py-1 bg-gold-500/10 border border-gold-500/30 text-gold-300 font-sans text-xs tracking-wider uppercase rounded-full mb-3">
+                            Қазақ тілі мен әдебиеті пәні әдістемелік бірлестігінің апталығы
+                        </span>
+                    </div>
+
+                    <h2 class="font-sans text-gold-500 font-semibold tracking-[0.3em] text-xs sm:text-sm uppercase mb-6 reveal-up active" style="transition-delay: 0.2s;">
+                        05–09 Қазан 2026 <span class="mx-3 opacity-30 text-gold-500">|</span> №75 Мектеп-Гимназиясы
+                    </h2>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-8 reveal-up active w-full" style="transition-delay: 0.4s;">
+                        <span class="block text-darkText font-medium">Тілім менің –</span>
+                        <span class="block text-gradient-gold italic mt-2 font-semibold">ғасырларға аманат</span>
+                    </h1>
+
+                    <p class="font-serif text-xl sm:text-2xl text-gold-300 italic tracking-wide mb-10 max-w-xl reveal-up active" style="transition-delay: 0.6s;">
+                        «Бір апта. Бір тіл. Бір рух. Бір аманат.»
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row w-full gap-4 reveal-up active" style="transition-delay: 0.8s;">
+                        <a href="#program" class="px-8 py-4 bg-gradient-to-r from-gold-500 to-gold-400 text-[#050A14] font-sans font-bold tracking-widest text-xs uppercase hover:from-gold-400 hover:to-gold-300 shadow-[0_0_25px_rgba(212,175,55,0.4)] hover:-translate-y-1 transition-all duration-300 text-center rounded-sm">
+                            Апталық бағдарламасы
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce z-10 hidden lg:flex">
+                <span class="font-sans text-[10px] font-semibold tracking-widest uppercase mb-3 text-gold-500/70">Төмен сырғытыңыз</span>
+                <div class="w-[1px] h-12 bg-gradient-to-b from-gold-400 to-transparent"></div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- ================= SECTION: FIVE DAYS PROGRAM ================= -->
+        <section id="program" class="relative py-24 md:py-32 px-4 bg-surface/30">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 md:mb-24 reveal-up">
+                    <h2 class="font-sans text-xs font-semibold tracking-[0.3em] text-gold-600 uppercase mb-4">Апталық бағдарламасы</h2>
+                    <h3 class="font-serif text-4xl md:text-5xl lg:text-6xl text-darkText font-semibold">Аманаттың бес күні</h3>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 relative z-10" id="days-container">
+                    <!-- Cards injected by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal for Event Details -->
+        <div id="event-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 sm:p-6" aria-hidden="true">
+            <div class="absolute inset-0 bg-[#050A14]/80 backdrop-blur-sm transition-opacity" id="modal-backdrop" onclick="closeModal()"></div>
+            
+            <div class="glass-panel p-6 sm:p-10 w-full max-w-3xl relative max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl modal-enter border border-gold-500/20" id="modal-content-container" role="dialog" aria-modal="true">
+                
+                <button onclick="closeModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-mutedText hover:text-gold-400 bg-surface rounded-full p-2 shadow-sm transition-all hover:bg-gold-500/10 z-10 focus:outline-none focus:ring-2 focus:ring-gold-500 border border-gold-500/10" aria-label="Close modal">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                
+                <div id="modal-body" class="relative"></div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ================= SECTION: COUNTDOWN ================= -->
+        <section class="relative py-24 md:py-32 px-4 flex flex-col items-center justify-center min-h-[50vh] bg-surface/50 shadow-inner">
+            <div class="text-center reveal-up w-full">
+                <h3 class="font-sans text-xs sm:text-sm font-semibold tracking-[0.3em] sm:tracking-[0.4em] text-gold-500 uppercase mb-12">Басталуына қалды:</h3>
+                
+                <div id="countdown-container" class="flex flex-wrap gap-4 sm:gap-6 md:gap-12 justify-center items-center">
+                    <div class="glass-panel px-4 py-6 sm:p-8 rounded-xl min-w-[80px] sm:min-w-[120px] flex flex-col items-center">
+                        <span id="cd-days" class="font-serif font-semibold text-4xl sm:text-5xl md:text-7xl text-darkText mb-2">00</span>
+                        <span class="font-sans text-[10px] md:text-xs font-semibold tracking-widest text-mutedText uppercase">Күн</span>
+                    </div>
+                    
+                    <span class="font-serif text-3xl sm:text-5xl md:text-7xl text-gold-300 pb-8 hidden sm:block">:</span>
+                    
+                    <div class="glass-panel px-4 py-6 sm:p-8 rounded-xl min-w-[80px] sm:min-w-[120px] flex flex-col items-center">
+                        <span id="cd-hours" class="font-serif font-semibold text-4xl sm:text-5xl md:text-7xl text-darkText mb-2">00</span>
+                        <span class="font-sans text-[10px] md:text-xs font-semibold tracking-widest text-mutedText uppercase">Сағат</span>
+                    </div>
+                    
+                    <span class="font-serif text-3xl sm:text-5xl md:text-7xl text-gold-300 pb-8 hidden sm:block">:</span>
+                    
+                    <div class="glass-panel px-4 py-6 sm:p-8 rounded-xl min-w-[80px] sm:min-w-[120px] flex flex-col items-center">
+                        <span id="cd-minutes" class="font-serif font-semibold text-4xl sm:text-5xl md:text-7xl text-darkText mb-2">00</span>
+                        <span class="font-sans text-[10px] md:text-xs font-semibold tracking-widest text-mutedText uppercase">Минут</span>
+                    </div>
+                    
+                    <span class="font-serif text-3xl sm:text-5xl md:text-7xl text-gold-300 pb-8 hidden md:block">:</span>
+                    
+                    <div class="glass-panel px-4 py-6 sm:p-8 rounded-xl min-w-[80px] sm:min-w-[120px] flex-col items-center hidden md:flex">
+                        <span id="cd-seconds" class="font-serif font-semibold text-4xl sm:text-5xl md:text-7xl text-darkText mb-2">00</span>
+                        <span class="font-sans text-[10px] md:text-xs font-semibold tracking-widest text-mutedText uppercase">Секунд</span>
+                    </div>
+                </div>
+                
+                <div id="countdown-ended" class="hidden">
+                    <div class="glass-panel inline-block px-12 py-8 rounded-xl">
+                        <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl text-gradient-gold font-semibold">«АМАНАТ БАСТАЛДЫ!»</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FINAL SCREEN / FOOTER ================= -->
+        <footer class="relative bg-surface pt-24 md:pt-32 pb-12 px-4 flex flex-col items-center justify-center text-center border-t border-gold-500/10 shadow-[0_-10px_40px_rgba(0,0,0,0.02)]">
+            
+            <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-darkText tracking-wider mb-8 reveal-up font-semibold">
+                «АМАНАТ СЕНІҢ ҚОЛЫҢДА.»
+            </h2>
+            
+            <div class="h-[2px] w-24 bg-gradient-to-r from-transparent via-gold-500 to-transparent mb-8 reveal-up"></div>
+
+            <div class="font-sans text-xs sm:text-sm md:text-base text-darkText/80 font-medium tracking-widest leading-loose reveal-up">
+                <p>ТІЛІМ МЕНІҢ – ҒАСЫРЛАРҒА АМАНАТ</p>
+                <p class="mt-2 text-gold-500 font-semibold">05–09.10.2026</p>
+                <p class="mt-2">№75 МЕКТЕП-ГИМНАЗИЯСЫ</p>
+            </div>
+
+            <div class="mt-20 pt-8 border-t border-gold-500/10 w-full max-w-4xl font-sans text-[10px] sm:text-xs text-mutedText tracking-wider font-medium px-4">
+                Қазақ тілі мен әдебиеті пәні мұғалімдерінің әдістемелік бірлестігі
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        const programData = [
+            {
+                date: "05",
+                month: "ҚАЗАН",
+                title: "АМАНАТТЫ ТАНЫ",
+                events: [
+                    { name: "Дәліздерді қанатты сөздермен безендіру", time: "Апта бойы", location: "1-қабат", participants: "1-11 сынып", teacher: "Кенжина А.Қ., Гайнуллина Г.Т., Мырзахметова А.Т., ӘБ мұғалімдері, Қамытбекова А.Н., Хасенова Е.А., Кайруллина Г.А., Салимбек А.Б." },
+                    { name: "«Тілім менің-ғасырларға аманат» атты апталықтың бейнеролигі", time: "Апта бойы", location: "1-қабат", participants: "1-11 сынып", teacher: "Гайнуллина Г.Т., Салимбек А., Романқызы А." },
+                    { name: "«Сәлем-сөздің атасы»", time: "07.45", location: "1-қабат", participants: "10 А сыныбы", teacher: "Исмайлова Р.Қ., ӘБ мұғалімдері" },
+                    { name: "«Тілім менің-ғасырларға аманат» атты апталықтың ашылу лездемесі", time: "09.25, 13.45", location: "№75 МГ, 1-қабат", participants: "1-11 сынып, 5-7 сынып", teacher: "Тулеуова Г.Қ., Оразбаева А.Қ., Кайруллина Г.А., Турсынхан Г., Уашева А.А., Құсман Д." },
+                    { name: "«Ұлы бабалар аманаты» атты қазақ тілі мен әдебиеті мұғалімдерінің ӘБ онкүндігінің ашылу салтанаты", time: "12.00", location: "№75 МГ, Акт залы", participants: "8-11 сынып", teacher: "Исмайлова Р.Қ., Қамытбекова А.Н., Гайнуллина Г.Т., ӘБ мұғалімдері" },
+                    { name: "«Қазақ әндерінен» караоке", time: "09.25-09.40, 15.25-15.40", location: "1-қабат", participants: "2-11 сынып, 5-7 сынып", teacher: "Қамытбекова А.Н, Гайнуллина Г.Т., Мырзахметова А.Т., Кенжина А.Қ., Романқызы А., Салимбек А.Б." },
+                    { name: "«Әжемнің ертегісі» ертегі оқу", time: "09.25-09.40", location: "кітапхана", participants: "1-2 сынып", teacher: "Бардосова Л.С., Хасенова Е.А." },
+                    { name: "«Абай музасы» әдеби-музыкалық кеш және Абайдың қарасөздерінен ЖИ арқылы видеоролик дайындау", time: "13.45", location: "кітапхана", participants: "6-7 сынып", teacher: "Колчораева Ф.А." },
+                    { name: "Ашық сабақ: «Бір минут-бір кісінің өмірі»", time: "14.45", location: "302 каб", participants: "7 К", teacher: "Жандельдинова Г.С." }
+                ]
+            },
+            {
+                date: "06",
+                month: "ҚАЗАН",
+                title: "АМАНАТТЫ ЖАҢАРТ",
+                events: [
+                    { name: "Жас ұстаздардың «Білгенге маржан» атты интеллектуалды брейн-ринг мектепішілік сайысы", time: "13.00", location: "Акт залы", participants: "ӘБ мұғалімдері", teacher: "Саменова Г.Ш., Кенжина А.К., Романқызы А., Салимбек А., Бейсенбекова А.А." },
+                    { name: "«Кім жылдам? Кім тапқыр?»", time: "09.25", location: "1 қабат", participants: "9-сынып", teacher: "Турсумбеков Б.Қ., Балқожа А.Х." },
+                    { name: "«Цифрлық сауаттылық-заман талабы» ЖИ мүмкіндіктері шеберлік сағаты", time: "12.50-13.30", location: "114 каб", participants: "пән мұғалімдері", teacher: "Құсман Д." },
+                    { name: "Ашық сабақ: Қызыл кітап", time: "15.50", location: "313 каб", participants: "5 Л", teacher: "Кенжина А.К." },
+                    { name: "Ашық сабақ: Ақшаны үнемдеп жұмсайсың ба?", time: "11.20", location: "207 каб", participants: "8 Г", teacher: "Кенжебекова Ж.Қ." },
+                    { name: "Ашық сабақ: Қазақстандағы қандай тауларды білесің?", time: "14.00", location: "206 каб", participants: "6 Б", teacher: "Романқызы А." }
+                ]
+            },
+            {
+                date: "07",
+                month: "ҚАЗАН",
+                title: "АМАНАТТЫ ОҚЫ",
+                events: [
+                    { name: "«Кітап оқитын ұлт» жобасы аясындағы «КІТАП СТАРТАП» заманауи шарасы", time: "11.25", location: "кітапхана", participants: "11 Ж сыныптар", teacher: "Бардосова Л.С., Гайнуллина Г.Т." },
+                    { name: "12 ай-12 кітап. Қуыршақ театрындағы ертегі. «Әжелер өсиеті»", time: "13.00", location: "Кітапхана", participants: "3 сынып", teacher: "Кенжебекова Ж.Қ." },
+                    { name: "Ашық сабақ: «Қазақстандағы қандай тауларды білесің?»", time: "17.20", location: "315 каб", participants: "6 В", teacher: "Кайкенова А.М." },
+                    { name: "Ашық сабақ: Не жаман?", time: "16.25", location: "109 каб", participants: "3 Б", teacher: "Оразғалиқызы Л" }
+                ]
+            },
+            {
+                date: "08",
+                month: "ҚАЗАН",
+                title: "АМАНАТТЫ КӨРСЕТ",
+                events: [
+                    { name: "«Білім майталмандары» білім әлемінде...", time: "11.30", location: "Акт залы", participants: "№ 75,32,11, 104 мектеп 11 сынып", teacher: "Мырзахметова А.Т." },
+                    { name: "«Ұлттық бренд пати» жәрмеңкесі оқушылардың қазақ тілі бойынша білім сайысы", time: "11.25, 15.35", location: "1 қабат", participants: "2-10 сыныптар", teacher: "Қамытбекова А.Н., Кайруллина Г.А., Оразбаева А.Қ., Жандельдинова Г.С., Тұрсынхан Г.Т., Кайкенова А.М., Оразғалиқызы Л., Саменова Г.Ш." },
+                    { name: "«Тілде тұнған мұра» сахналық қойылым", time: "13.00", location: "302 каб", participants: "7 Г сыныбы", teacher: "Жандельдинова Г.С." },
+                    { name: "Мұражай сабақ: Не жақсы? Не жаман?", time: "12.05", location: "215 каб", participants: "4 З", teacher: "Гайнуллина Г.Т., Кайруллина Г.А." },
+                    { name: "Ашық сабақ: Қызыл кітап", time: "15.40", location: "301 каб", participants: "5 В", teacher: "Бейсенбекова А.А." },
+                    { name: "Ашық сабақ: Ғаламдық экология мәселелері", time: "16.25", location: "103 каб", participants: "7 И", teacher: "Колчораева Ф.А." }
+                ]
+            },
+            {
+                date: "09",
+                month: "ҚАЗАН",
+                title: "АМАНАТТЫ ЖАЛҒАСТЫР",
+                events: [
+                    { name: "«Таза Қазақстан-адал ұрпақ» танымдық сайыс", time: "12.40", location: "Кітапхана", participants: "6 сыныптар", teacher: "Кайкенова А.М., Романқызы А, Сәлімбек А.Б." },
+                    { name: "ХХІ ғасыр көшбасшысы зияткерлік ойын", time: "9.35-15.00", location: "Оқу кабинеті", participants: "5 сыныптар", teacher: "Құсман Д., Бейсенбекова А.А." },
+                    { name: "«Тілім менің-ғасырларға аманат» атты онкүндіктің қорытынды концерті", time: "13.00", location: "Акт залы", participants: "2-11 сынып", teacher: "Гайнуллина Г.Т., Мырзахметова А.Т., Серикбаева З.У., Қамытбекова А.Н., ӘБ мұғалімдері" },
+                    { name: "Ашық сабақ: Қазақ киносының атасы", time: "09.40", location: "211 каб", participants: "10 Б", teacher: "Тулеуова Г.Қ." },
+                    { name: "Ашық сабақ: «Қазақтар-Ұлы дала мұрагері»", time: "11.15", location: "313 каб", participants: "9 В", teacher: "Турсумбеков Б.Қ." },
+                    { name: "Ашық сабақ: Дәрігермен сұқбат", time: "18.45", location: "322 каб", participants: "7 А", teacher: "Турсынхан Г." },
+                    { name: "Ашық сабақ: Қамқор немере", time: "08.00", location: "107 каб", participants: "4 И", teacher: "Хасенова Е.А." },
+                    { name: "Ашық сабақ: Қызыл кітап", time: "14.00", location: "202 каб", participants: "5 И", teacher: "Уашева А.А." },
+                    { name: "Ашық сабақ: Екі тілді білген-екі адам", time: "08.45", location: "322 каб", participants: "11 Г", teacher: "Серикбаева З.У." },
+                    { name: "Ашық сабақ: «Тауда түнедік»", time: "14.45", location: "202 каб", participants: "6 З", teacher: "Саменова Г.Ш." },
+                    { name: "Ашық сабақ: Ақшаны үнемдеп жұмсайсың ба?", time: "11.20", location: "207 каб", participants: "8 Г", teacher: "Кенжебекова Ж.Қ." },
+                    { name: "Ашық сабақ: Не жаман?", time: "14.00", location: "113 каб", participants: "3 З", teacher: "Салимбек А.Б." }
+                ]
+            }
+        ];
+
+        function renderTimeline() {
+            const container = document.getElementById('days-container');
+            if(!container) return;
+            programData.forEach((day, index) => {
+                const card = document.createElement('div');
+                card.className = `glass-panel p-6 sm:p-8 rounded-xl flex flex-col items-center text-center cursor-pointer transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(217,119,6,0.15)] reveal-up group relative overflow-hidden`;
+                card.style.transitionDelay = `${index * 0.1}s`;
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('aria-label', `${day.date} ${day.month} - ${day.title}. Бағдарламаны көру үшін басыңыз.`);
+                
+                card.innerHTML = `
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent to-gold-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div class="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full flex flex-col items-center justify-center mb-6 overflow-hidden z-10">
+                        <div class="absolute inset-0 border-2 border-gold-300 rounded-full group-hover:scale-105 group-hover:border-gold-500 transition-all duration-500"></div>
+                        <span class="font-serif font-semibold text-3xl sm:text-4xl md:text-5xl text-darkText group-hover:scale-110 group-hover:text-gold-600 transition-all duration-500">${day.date}</span>
+                        <span class="font-sans font-semibold text-[9px] sm:text-[10px] tracking-widest text-mutedText mt-1 uppercase">${day.month}</span>
+                    </div>
+                    
+                    <div class="h-8 w-[2px] bg-gradient-to-b from-gold-300 to-transparent mb-4 opacity-50 group-hover:opacity-100 group-hover:from-gold-500 transition-all z-10"></div>
+                    
+                    <h4 class="font-sans font-bold text-xs sm:text-sm tracking-widest text-darkText h-12 flex items-center justify-center uppercase leading-tight z-10 group-hover:text-gold-600 transition-colors">${day.title}</h4>
+                    
+                    <div class="mt-4 text-[10px] font-sans font-semibold tracking-wider text-mutedText uppercase flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                        <span>Ашу</span>
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                `;
+                
+                card.addEventListener('click', () => openModal(index));
+                card.addEventListener('keydown', (e) => {
+                    if(e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openModal(index);
+                    }
+                });
+                container.appendChild(card);
+            });
+        }
+
+        const modal = document.getElementById('event-modal');
+        const modalContent = document.getElementById('modal-content-container');
+        const modalBody = document.getElementById('modal-body');
+        let previouslyFocusedElement = null;
+
+        function openModal(dayIndex) {
+            previouslyFocusedElement = document.activeElement;
+            const day = programData[dayIndex];
+            
+            let eventsHtml = `<div class="mb-8 text-center border-b border-gray-700/50 pb-6">
+                <h2 class="font-serif font-semibold text-4xl sm:text-5xl text-darkText mb-3">${day.date} <span class="text-3xl text-gold-500">${day.month}</span></h2>
+                <h3 class="font-sans text-xs sm:text-sm font-bold tracking-[0.2em] sm:tracking-[0.3em] text-mutedText uppercase">${day.title}</h3>
+            </div>`;
+            
+            eventsHtml += `<div class="space-y-4 sm:space-y-6">`;
+            day.events.forEach((event, idx) => {
+                const isOpenLesson = event.name.toLowerCase().includes('ашық сабақ');
+                const borderColor = isOpenLesson ? 'border-accent-cyan/40' : 'border-gold-400';
+                const hoverBorderColor = isOpenLesson ? 'hover:border-accent-cyan' : 'hover:border-gold-600';
+                const badgeColor = isOpenLesson ? 'bg-accent-cyan/20 text-accent-cyan' : 'bg-gold-500/20 text-gold-400';
+                
+                eventsHtml += `
+                    <div class="glass-panel p-4 sm:p-5 rounded-lg border-l-4 ${borderColor} ${hoverBorderColor} transition-colors shadow-sm hover:shadow-md" style="animation: slideInUp 0.4s ease forwards; animation-delay: ${idx * 0.05}s; opacity: 0; transform: translateY(10px);">
+                        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
+                            <h4 class="font-serif font-semibold text-lg sm:text-xl text-darkText leading-tight">${event.name}</h4>
+                            <span class="inline-block px-2 py-1 text-[10px] font-sans font-semibold uppercase tracking-wider rounded ${badgeColor} whitespace-nowrap self-start">
+                                ${event.time}
+                            </span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-4 text-xs sm:text-sm font-sans text-mutedText mt-3">
+                            <div class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-gold-500/70 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                <span><strong class="text-darkText font-medium">Орны:</strong> ${event.location}</span>
+                            </div>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-4 h-4 text-gold-500/70 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                <span><strong class="text-darkText font-medium">Сыныптар:</strong> ${event.participants}</span>
+                            </div>
+                            <div class="flex items-start gap-2 sm:col-span-2 mt-1">
+                                <svg class="w-4 h-4 text-gold-500/70 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                                <span><strong class="text-darkText font-medium">Жауапты:</strong> ${event.teacher}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            eventsHtml += `</div>
+            <style>
+                @keyframes slideInUp {
+                    to { opacity: 1; transform: translateY(0); }
+                }
+            </style>`;
+            
+            modalBody.innerHTML = eventsHtml;
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            modalContent.querySelector('button').focus();
+            setTimeout(() => {
+                modalContent.classList.add('modal-enter-active');
+            }, 10);
+        }
+
+        function closeModal() {
+            modalContent.classList.remove('modal-enter-active');
+            modalContent.classList.add('modal-leave-active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modalContent.classList.remove('modal-leave-active');
+                if (previouslyFocusedElement) {
+                    previouslyFocusedElement.focus();
+                }
+            }, 200);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeModal();
+            }
+        });
+
+        function initCountdown() {
+            const targetDate = new Date('2026-10-05T09:00:00').getTime();
+            const updateTimer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    clearInterval(updateTimer);
+                    document.getElementById('countdown-container').classList.add('hidden');
+                    document.getElementById('countdown-ended').classList.remove('hidden');
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('cd-days').innerText = days.toString().padStart(2, '0');
+                document.getElementById('cd-hours').innerText = hours.toString().padStart(2, '0');
+                document.getElementById('cd-minutes').innerText = minutes.toString().padStart(2, '0');
+                if(document.getElementById('cd-seconds')) {
+                     document.getElementById('cd-seconds').innerText = seconds.toString().padStart(2, '0');
+                }
+            }, 1000);
+            
+            const initialDistance = targetDate - new Date().getTime();
+            if(initialDistance > 0) {
+                document.getElementById('cd-days').innerText = Math.floor(initialDistance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById('cd-hours').innerText = Math.floor((initialDistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById('cd-minutes').innerText = Math.floor((initialDistance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            }
+        }
+
+        function initScrollAnimations() {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion) {
+                document.querySelectorAll('.reveal-up').forEach(el => {
+                    el.classList.add('active');
+                    el.style.transition = 'none';
+                    el.style.transform = 'none';
+                    el.style.opacity = '1';
+                });
+                return;
+            }
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-up').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        function initCanvas() {
+            const canvas = document.getElementById('cinema-canvas');
+            if(!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+            
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                canvas.style.display = 'none';
+                return;
+            }
+            
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+            
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(resize, 200);
+            });
+            resize();
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.3;
+                    this.speedY = (Math.random() - 0.5) * 0.3 - 0.2;
+                    this.baseOpacity = Math.random() * 0.4 + 0.1;
+                    
+                    const rand = Math.random();
+                    if (rand > 0.7) {
+                        this.r = 212; this.g = 175; this.b = 55;
+                    } else if (rand > 0.4) {
+                        this.r = 124; this.g = 58; this.b = 237;
+                    } else {
+                        this.r = 2; this.g = 132; this.b = 199;
+                    }
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.y < -10) this.y = height + 10;
+                    if (this.x < -10) this.x = width + 10;
+                    if (this.x > width + 10) this.x = -10;
+                }
+                draw(time) {
+                    const currentOpacity = this.baseOpacity * (0.5 + 0.5 * Math.sin(time * 0.002 + this.x));
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${this.r}, ${this.g}, ${this.b}, ${currentOpacity})`;
+                    ctx.fill();
+                }
+            }
+
+            const particleCount = width < 768 ? 40 : 80;
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            let time = 0;
+            let animationId;
+            
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                time += 1;
+                
+                particles.forEach(p => {
+                    p.update();
+                    p.draw(time);
+                });
+
+                ctx.beginPath();
+                const cp1x = width * 0.3 + Math.sin(time * 0.001) * 100;
+                const cp1y = height * 0.4 + Math.cos(time * 0.0015) * 150;
+                const cp2x = width * 0.7 + Math.cos(time * 0.0012) * 100;
+                const cp2y = height * 0.8 + Math.sin(time * 0.0008) * 150;
+                
+                ctx.moveTo(-100, height * 0.6 + Math.sin(time * 0.002) * 50);
+                ctx.bezierCurveTo(cp1x, cp1y, cp2x, cp2y, width + 100, height * 0.4 + Math.cos(time * 0.001) * 50);
+                
+                const gradient = ctx.createLinearGradient(0, 0, width, 0);
+                gradient.addColorStop(0, 'rgba(212, 175, 55, 0)');
+                gradient.addColorStop(0.5, 'rgba(212, 175, 55, 0.2)');
+                gradient.addColorStop(1, 'rgba(212, 175, 55, 0)');
+                
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = 1.5;
+                ctx.stroke();
+
+                animationId = requestAnimationFrame(animate);
+            }
+            
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    if (!animationId) animate();
+                } else {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            });
+            observer.observe(document.body);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTimeline();
+            initCountdown();
+            initScrollAnimations();
+            setTimeout(initCanvas, 100);
+        });
+    </script>
+</body>
+</html>
